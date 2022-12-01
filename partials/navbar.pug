@@ -1,0 +1,28 @@
+block PrimaryNavigation
+  -
+    var NavItems = [
+      {'url':'/index.html','title':'Home', 'key': 'index'},
+      {'url':'/publications.html','title':'Publications','key':'publications'},
+      {'url':'/news.html','title':'News','key':'news'},
+      {'url':'/projects.html','title':'Projects','key':'projects'},
+      {'disabled':true,'title':'People','key':'people'},
+      {'disabled':true,'title':'Teaching','key':'teaching'}
+    ];
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .container
+    a.navbar-brand(href="/") CGS
+    button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse#navbarSupportedContent
+      .navbar-nav
+        each page,i in NavItems
+          if page.disabled
+            a.nav-link.disabled= page.title
+          else
+            if PageID === page.key
+              a.nav-link(class="active", href=page.url)
+                = page.title
+            else
+              a.nav-link(href=page.url)
+                = page.title

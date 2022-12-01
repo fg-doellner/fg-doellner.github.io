@@ -1,0 +1,22 @@
+mixin bibliography_entry(key, content)
+  .card
+    .card-header
+      | Article
+    .card-body
+      h6.card-title.text-muted
+        | #{content.parsedContent.author}
+      h4.card-subtitle
+        | #{content.parsedContent.title}
+      dl.row
+        dt.col-sm-2 Authors
+        dd.col-sm-10 #{content.parsedContent.author}
+        dt.col-sm-2 Title
+        dd.col-sm-10 #{content.parsedContent.title}
+        dt.col-sm-2 Year
+        dd.col-sm-10 #{content.parsedContent.year}
+        if content.parsedContent.doi
+          dt.col-sm-2 DOI
+          dd.col-sm-10
+            a(href="https://doi.org/"+content.parsedContent.doi) #{content.parsedContent.doi}
+        dt.col-sm-2.text-muted [...]
+        dd.col-sm-10.text-muted [content deliberately omitted]

@@ -1,0 +1,48 @@
+extends /template/defaultcontent.pug
+
+include /partials/bibliography_list.pug
+
+block variables
+  - var SiteName = "Computer Graphics Systems"
+  - var PageName = "Publications"
+  - var PageID = "publications"
+  -
+    var publication_keys = Object.keys(bibliography);
+    publication_keys.sort((key1, key2) => {
+      if (bibliography[key1].parsedContent.year > bibliography[key2].parsedContent.year) {
+        return -1;
+      } else if (bibliography[key1].parsedContent.year < bibliography[key2].parsedContent.year) {
+        return 1;
+      }
+      if (bibliography[key1].parsedContent.author > bibliography[key2].parsedContent.author) {
+        return 1;
+      } else if (bibliography[key1].parsedContent.author > bibliography[key2].parsedContent.author) {
+        return -1;
+      }
+      return 0;
+    });
+    var publication_keys_by_year = {};
+    for (var key of publication_keys) {
+      const year = bibliography[key].parsedContent.year;
+      publication_keys_by_year[year] ||= [];
+      publication_keys_by_year[year].push(key);
+    }
+    var years = Object.keys(publication_keys_by_year);
+    years.sort();
+    years.reverse();
+
+block content
+  .card
+    .card-header
+      h3 CGS Publications 
+    .card-body
+      ul.list-inline.mb-0
+        li.list-inline-item
+          | Jump to year:
+        each year in years
+          li.list-inline-item
+            a(href="#"+year) #{year}
+        li.list-inline-item
+          span.text-muted [content deliberately omitted]
+
+  +bibliography_list_by_year(years, publication_keys_by_year, bibliography)

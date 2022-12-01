@@ -1,0 +1,132 @@
+extends /template/defaultcontent.pug
+
+include /partials/project_entry.pug
+
+block variables
+  - var SiteName = "Computer Graphics Systems"
+  - var PageName = "Projects"
+  - var PageID = "projects"
+
+block content
+  .card
+    .card-header
+      h3 What is Digital Engineering?
+    .card-body
+      p.card-text
+        | #[strong Digital Engineering] is concerned with engineering-driven methods, principles and techniques used to design,
+        | build, analyze, operate, manage and integrate digital systems such as software-intensive IT systems, applications and services.
+        | As interdisciplinary approach it includes:
+      ul.card-text
+        li
+          | IT-Systems Engineering, Computer science and Software Engineering
+        li
+          | Data Science, Mathematics and Statistics
+        li
+          | Economics and Law
+        li
+          | Entrepreneurship and Innovation Management
+      p.card-text
+        | Digital Engineering investigates and develops approaches and strategies to provide effective
+        | procedures and reliable processes for the entire life cycle of digital systems.
+        | It is not only focused on #[strong technical artifacts] that are subhject of analysis, design, implementation,
+        | testing, and operation of digital systems, but also on corresponding development processes,
+        | the participating #[strong stakeholders], the needs and requirements for the system, the overall #[strong evolution] of the
+        | system throughout its lifetime, and its integration into real-world processes, tasks, and #[strong economic as well as social contexts].
+      p.card-text
+        | Digital Engineering is key to overcoming the multiple weaknesses of digital system development, known as
+        | "#[strong software crisis]", which are increasingly becoming a major obstacle to the growth and operation of almost
+        | all companies as they are transforming into software-based enterprises&mdash;frequently known as "software eats the world".
+        | In a sense, Digital Engineering aims at transforming software engineering into a kind of "#[strong real engineering]", e.g.,
+        | through transparency for all stakeholders, effective management of teams, precise control of progress and holistic
+        | monitoring of IT developments.
+      p.card-text
+        | Digital Engineering is not bound to specific programming languages, programming paradigms, middleware, development
+        | methodologies or development environments. Digital Engineering is supported by #[strong software analytics] and
+        | #[strong software process mining], which are specific subjects of the research at the chair of Prof. Döllner.
+
+  .card
+    .card-header
+      h4 Research and Development Initiatives
+    //-.card-body
+    ul.list-group.list-group-flush
+      li.list-group-item
+        | #[strong AI Lab for IT-Systems Engineering:] HPI has established a joint research lab for AI for IT systems engineering,
+        | funded by German Federal Ministry of Education and Research BMBF (2019-2021); the laboratory includes the HPI groups
+        | of Prof. Bert Arnrich, Prof. Jürgen Döllner, Prof. Tobias Friedrich, Prof. Robert Hirschfeld, Prof. Lippert, and Prof. Christoph Meinel.
+      li.list-group-item
+        | #[strong ZIM Kooperationsnetzwerk "twin4bim":] HPI is member of the cooperation and research network
+        | "digital twins for building information models" of the GeoKOMM network (#[a(href="https://www.geokomm.de/twin4bim.html") https://www.geokomm.de/twin4bim.html]).
+      li.list-group-item
+        | #[strong GraphicsVision.AI:] HPI is founding member of the not-profit international network GraphicsVision.AI
+        | that joins international research institutions and innovation driven companies and that share a common vision
+        | and interest in technologies such as Computer Graphics, Multimodal-Multimedia, Visual Interactive Digital Media,
+        | Visualization and Simulation, having a strong focus on Artificial Intelligence and Machine Vision and Learning
+        | (#[a(href="https://graphicsvision.ai/") https://graphicsvision.ai/]).
+      li.list-group-item
+        | #[strong German Deep Tech Group:] A large number of former PhDs and master students work for companies of the
+        | German Deep Tech Group due its unique focus on visual computing, visual analytics, and AI technologies that
+        | form base components of their systems and applications. In this way, a number of start-ups have emerged in the past.
+
+  .card
+    .card-header
+      h4 Research and Development Projects
+    //-.card-body
+    ul.list-group.list-group-flush
+      li.list-group-item
+        +project_entry("AI4SE", "./images/teaser-ai4se.jpg")
+          | Seerene with its innovative software analytics platform and the Hasso Plattner Institute for Digital Engineering (HPI)
+          | as center of excellence for IT systems engineering are jointly conducting a study on AI for software engineering
+          | (#[a(href="https://www.seerene.com/ai4se") https://www.seerene.com/ai4se]).
+      li.list-group-item
+        +project_entry("Software DNA", "./images/teaser-swdna.jpg")
+          | Software DNA investigates concepts and techniques for visualizing characteristic features
+          | of the software modules and of the related software development process ("Software DNA").
+      li.list-group-item
+        +project_entry("TASAM", "./images/teaser-tasam.jpg")
+          | TASAM investigates and develops information visualization techniques used for
+          | temporal, animated software analytics maps.
+      li.list-group-item
+        +project_entry("mdViPro", "./images/teaser-mdvipro.png")
+          | mdViPro investigates and develops AI-based methods and techniques that abstract,
+          | stylize, and generalized multidimensionale visual media contents.
+      li.list-group-item
+        +project_entry("Geoportfolio", "./images/teaser-geoportfolio.jpg")
+          | Geoportfolio aims at developing analytics instruments that allow for understand, evalute,
+          | and visualize location-based characteristics such as for shop locations and point-of-sales.
+      li.list-group-item
+        +project_entry("PunctumTube", "./images/teaser-punctum.jpg")
+          | PunctumTube investigates and develops methods and techniques for the
+          | AI-based processing of massive 3D and 4D point cloud data.
+      li.list-group-item
+        +project_entry("MobiDyn", "./images/teaser-mobidyn.jpg")
+          | MobiDyn investigates how to generalize and consolidate spatial trajectory data.
+      li.list-group-item
+        +project_entry("IBDAV", "./images/teaser-ibdav.jpg")
+          | IBDAV concentrates on machine sensor data and its integration into information systems.
+      li.list-group-item
+        +project_entry("QViZO", "./images/teaser-qvizo.jpg")
+          | QViZO investigates methods and virtualization techniques for temporally changing spatial
+          | environments using multi-sensor systems.
+      li.list-group-item
+        +project_entry("East Jersualem Virtual 3D City Model", "./images/teaser-jersualem.jpg")
+          | Towards social inclusion in community development by providing platforms for planning and advocacy.
+
+  .card
+    .card-header
+      h4 Selection of Past Projects
+    .card-body
+      ul.mb-0
+        li
+          | BMBF Research Group "4DnD-Vis" (InnoProfile Transfer)
+        li
+          | BMBF Research Group "3D Geoinformation" (InnoProfile)
+        li
+          | Web View Service - main contributions to the international standard of the
+          | Open Geospatial Consortium for the service-oriented computing used to provide interactive 3D scenes.
+        li
+          | LandXplorer - a system for modeling and visualizing virtual 3D city models,
+          | which laid the foundation of the Autodesk product "InfraWorks".
+        li 
+          | OpenCSG - an open-source library for image-based constructive solid geometry.
+        li 
+          | Virtual Rendering System MAM/VRS - a C++ toolkit for implementing 3D applications based on scene graphs and animation graphs.

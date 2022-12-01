@@ -1,0 +1,20 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2022-07-27-paper-accepted-for-scam-2022';
+
+//-
+  block date
+    | [date]
+  
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+    | The paper entitled "CodeCV: Mining Expertise of GitHub Users from Coding Activities"
+    | written by Daniel Atzberger, Nico Scordialo, Tim Cech, Willy Scheibel, Matthias Trapp,
+    | and Jürgen Döllner is accepted for publication on the International Working Conference
+    | on Source Code Analysis and Manipulation (SCAM 2022). The conference is co-located with
+    | the ICSME and will be held in Limassol, Cyprus from October 3-4. For more information,
+    | please refer to #[a(href='https://www.ieee-scam.org/2022/') https://www.ieee-scam.org/2022/].

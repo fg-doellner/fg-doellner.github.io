@@ -1,0 +1,24 @@
+extends template.pug
+
+block variables
+  - var SiteName = "Computer Graphics Systems"
+  - var PageName = "News"
+  - var PageID = "news"
+
+block content
+  block newsvariables
+    - var newskey = '';
+
+  - var newsentry = news[newskey] || {};
+  
+  .card
+    .card-header
+      block date
+        | #{newsentry.date||"[no date]"}
+
+    .card-body
+      h4.card-title
+        block title
+          | #{newsentry.title||"[no title]"}
+
+      block newscontent

@@ -1,0 +1,30 @@
+extends template.pug
+
+include /partials/bibliography_entry.pug
+
+block variables
+  - var SiteName = "Computer Graphics Systems"
+  - var PageName = "Publications"
+  - var PageID = "publications"
+
+block content
+  block publicationvariables
+    - var bibkey = '';
+  
+  - var bibentry = bibliography[bibkey] || {};
+
+  block bibliographyentry
+    +bibliography_entry(bibkey, bibentry)
+  
+  block publicationscontent
+    
+  block bibtexentry
+    .card.bg-light.border-secondary
+      .card-header.d-flex
+        span BibTeX Entry
+        span.ms-auto
+          a(href=require("@root/"+bibentry.filename)) Download
+      .card-body
+        pre.mb-0
+          code
+            | #{bibentry.content}

@@ -1,0 +1,22 @@
+mixin bibliography_citation(key, content)
+  span
+    | #{content.parsedContent.author}:
+    | #{content.parsedContent.title}.
+    case content.parsedContent.type
+      when "article"
+        | #{" "+content.parsedContent.journal},
+        | #{content.parsedContent.publisher},
+    | #{" "+content.parsedContent.year}.
+  
+  ul.list-inline.text-end
+    if content.parsedContent.doi
+      li.list-inline-item
+        a(href="https://doi.org/"+content.parsedContent.doi)
+          | DOI
+    if content.parsedContent.url
+      li.list-inline-item
+        a(href=content.parsedContent.url)
+          | URL
+    li.list-inline-item
+      a(href="/publications/"+key+".html")
+        | Details

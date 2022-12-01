@@ -1,0 +1,12 @@
+mixin news_entry(key, entry)
+  li.list-group-item
+    span.text-muted=entry.date
+    h5.mb-0
+      | #{entry.title}
+    p
+      | #{entry.abstract}
+    if (entry.hasOwnProperty("detailpage") && entry.detailpage) || entry.url
+    ul.list-inline.text-end
+      li.list-inline-item
+        a(href="/news/"+(entry.url?entry.url:key)+".html")
+          | Full Article

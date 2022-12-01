@@ -1,0 +1,20 @@
+include bibliography_citation.pug
+
+mixin bibliography_list_by_year(years, bibliography_keys_by_year, bibliography_entries)
+  each year in years
+    .card(id=year)
+      .card-header.d-flex
+        span #{year}
+        span.ms-auto
+          a(href="#top") top
+      //-.card-body
+      ul.list-group.list-group-flush
+        each bibliography_key in bibliography_keys_by_year[year]
+          - var entry = bibliography_entries[bibliography_key]
+          li.list-group-item
+            +bibliography_citation(bibliography_key, entry)
+        li.list-group-item
+          span.text-muted [content deliberately omitted]
+      .card-footer.d-flex
+        span.ms-auto
+          a(href="#top") top

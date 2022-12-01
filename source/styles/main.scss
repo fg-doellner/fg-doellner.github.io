@@ -1,0 +1,84 @@
+@charset "utf-8";
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// $primary: #6cbb23 !default;
+// $primary: #4e8aad !default;
+
+$enable-flex: true;
+// $enable-rounded: false !default;
+$enable-rounded: true !default;
+
+// In honor of Microsoft Windows 11
+$border-radius: 8pt;
+
+$link-decoration: none;
+
+$enable-negative-margins: true;
+
+$aspect-ratios: ("1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "4x1": calc(1 / 4 * 100%));
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/helpers";
+
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/list-group";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+
+
+// common
+
+p {
+  hyphens: auto;
+  // @hyphenation-resource
+}
+
+.row {
+  margin-top: 2rem;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-sc{
+  font-variant: small-caps;
+}
+
+.list-item-bullet:before {
+  content: '>';
+  margin-right: 5px;
+}
+
+.card {
+  @extend .mb-4;
+}

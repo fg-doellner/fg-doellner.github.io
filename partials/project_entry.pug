@@ -1,0 +1,7 @@
+mixin project_entry(name, teaser)
+  .row.mt-0
+    .col-12.col-lg-6
+      img(src=require("../source/"+teaser)).img-fluid
+    .col-12.col-lg-6
+      h5 #{name}
+      block

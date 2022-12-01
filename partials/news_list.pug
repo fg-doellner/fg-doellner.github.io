@@ -1,0 +1,9 @@
+include news_entry.pug
+
+mixin news_list(news_keys, news_entries)
+  - var news_keys = Object.keys(news_entries);
+  ul.list-group.list-group-flush
+    each news_key in news_keys
+      +news_entry(news_key, news_entries[news_key])
+    li.list-group-item
+      span.text-muted [content deliberately omitted]

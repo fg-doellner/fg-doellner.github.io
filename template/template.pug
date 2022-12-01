@@ -1,0 +1,25 @@
+block variables
+  - var SiteName = "Computer Graphics Systems"
+  - var PageName = "Home"
+  - var PageID = "index"
+
+doctype html
+html(lang="en")
+  include /partials/head
+
+  body#page-top(data-spy = 'scroll')
+    section#navbar
+      include /partials/navbar.pug
+
+    section.container#content
+      .row
+        .col-12.col-md-8
+          block content
+        .col-12.col-md-4
+          block sidepane
+            include /partials/sidepane
+
+    section#footer.container
+      include /partials/footer
+
+  include /partials/scripts
