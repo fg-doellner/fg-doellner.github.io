@@ -32,8 +32,8 @@ jobs:
         run: npm run build
         working-directory: src
       - name: Copy website
-        run: cp -r src/dist/* deploy
-        working-directory: deploy
+        run: cp -r src/dist/* deploy/
+        working-directory: .
       - name: Commit result
         run: |
           git config user.email "${{ github.event.pusher.email }}"
