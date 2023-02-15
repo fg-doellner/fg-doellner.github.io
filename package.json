@@ -31,6 +31,7 @@
     },
     "scripts": {
         "start": "webpack serve --mode development",
-        "build": "webpack build --mode production"
+        "build": "webpack build --mode production",
+        "extract-bib": "node bib/extract.js"
     }
 }

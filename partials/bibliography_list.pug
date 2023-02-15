@@ -13,8 +13,6 @@ mixin bibliography_list_by_year(years, bibliography_keys_by_year, bibliography_e
           - var entry = bibliography_entries[bibliography_key]
           li.list-group-item
             +bibliography_citation(bibliography_key, entry)
-        li.list-group-item
-          span.text-muted [content deliberately omitted]
       .card-footer.d-flex
         span.ms-auto
           a(href="#top") top
