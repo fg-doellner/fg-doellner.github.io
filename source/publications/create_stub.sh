@@ -11,7 +11,6 @@ extends /template/publicationentry.pug
 
 block publicationvariables
   - var bibkey = '$key';
-  - var download_url = '';
 
 block publicationscontent
   //-

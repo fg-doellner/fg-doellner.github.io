@@ -9,12 +9,11 @@ block variables
 block content
   block publicationvariables
     - var bibkey = '';
-    - var download_url = '';
   
   - var bibentry = bibliography[bibkey] || {};
 
   block bibliographyentry
-    +bibliography_entry(bibkey, bibentry, download_url)
+    +bibliography_entry(bibkey, bibentry)
   
   block publicationscontent
     

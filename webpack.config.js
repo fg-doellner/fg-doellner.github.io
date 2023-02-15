@@ -65,6 +65,9 @@ const augmentBibliographyEntry = (entry) => {
     if (augmentedEntry.fields.pages) {
         augmentedEntry.pages = renderPages(augmentedEntry.fields.pages);
     }
+    if (augmentedEntry.fields.url) {
+        augmentedEntry.url = augmentedEntry.fields.url._unicode;
+    }
     // console.log(augmentedEntry);
     return augmentedEntry;
 }

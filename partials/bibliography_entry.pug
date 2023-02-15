@@ -1,10 +1,10 @@
-mixin bibliography_entry(key, content, download_url)
+mixin bibliography_entry(key, content)
   .card
     .card-header.d-flex
       span Article
-      if download_url
+      if content.parsedContent.url
         span.ms-auto
-          a(href=context.publications_path+download_url)
+          a(href=context.publications_path+content.parsedContent.url)
             i.bi.bi-download
     .card-body
       h6.card-title.text-muted
