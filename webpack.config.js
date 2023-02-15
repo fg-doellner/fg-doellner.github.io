@@ -10,6 +10,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const FontminPlugin = require('fontmin-webpack');
 const Bibliography = require('bibliography');
 const { toNamespacedPath } = require('path');
+const yaml = require('yaml');
 
 const renderAuthors = (authorField) => {
     const names = authorField._authors.map((authorName, index) => {
@@ -100,6 +101,11 @@ const collectNewsSync = (filenames) => {
     return entries;
 }
 
+const getYAMLDictSync = (filename) => {
+    const data = fs.readFileSync(`./source/data/${filename}`, 'utf8');
+    return yaml.parse(data);
+}
+
 function code(char) {
     return char.charCodeAt();
 }
@@ -132,6 +138,7 @@ module.exports = function (env, argv) {
     const newsFiles = glob.sync(path.join(__dirname, 'source/news/', '**/*.json'));
 
     const data = {
+        context: getYAMLDictSync('context.yml'),
         news: collectNewsSync(newsFiles),
         bibliography: createBibliographyFromBibFilesSync(bibFiles)
     };
@@ -149,7 +156,7 @@ module.exports = function (env, argv) {
             }),
             new CompressionPlugin({
                 minRatio: 0.9
-            })
+            }),
         ],
         resolve: {
             alias: {

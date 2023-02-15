@@ -10,11 +10,12 @@ block variables
 block content
   block publicationvariables
     - var bibkey = '';
+    - var download_url = '';
   
   - var bibentry = bibliography[bibkey] || {};
 
   block bibliographyentry
-    +bibliography_entry(bibkey, bibentry)
+    +bibliography_entry(bibkey, bibentry, download_url)
   
   block publicationscontent
     
@@ -23,7 +24,8 @@ block content
       .card-header.d-flex
         span BibTeX Entry
         span.ms-auto
-          a(href=require("@root/"+bibentry.filename)) Download
+          a(href=require("@root/"+bibentry.filename))
+            i.bi.bi-download 
       .card-body
         pre.mb-0
           code
