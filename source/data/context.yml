@@ -1,3 +1,6 @@
 domain: 'fg-doellner.github.io'
-name: 'Jürgen Döllner'
+chair: 'Prof. Dr. Jürgen Döllner'
+chair_short: 'Jürgen Döllner'
+group: 'Computer Graphics Systems'
+group_short: 'CGS'
 publications_path: 'https://github.com/fg-doellner/publications-archive/raw/publications/'

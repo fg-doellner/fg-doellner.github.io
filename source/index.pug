@@ -3,7 +3,6 @@ extends /template/defaultcontent.pug
 include /partials/news_list.pug
 
 block variables
-  - var SiteName = "Computer Graphics Systems"
   - var PageName = "Home"
   - var PageID = "index"
   -
@@ -15,12 +14,12 @@ block variables
 block content
   .card
     .card-header
-      h3 Research Group for Computer Graphics Systems
+      h3 Research Group for #{context.group}
     .card-body
       span.card-title.h5
         | Visual Computing, Visual Analytics &amp; AI on Abstract Data for Digital Engineering
       p
-        | The department 'Computer Graphical Systems' at HPI is dedicated to research and
+        | The department '#{context.group}' at HPI is dedicated to research and
         | development in Digital Engineering and IT-Systems Engineering, focusing on
         | information visualization, visual analytics, visual computing. Our research topics include:
       ul.list-group.list-group-flush

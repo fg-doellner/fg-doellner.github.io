@@ -3,7 +3,6 @@ extends /template/defaultcontent.pug
 include /partials/news_list.pug
 
 block variables
-  - var SiteName = "Computer Graphics Systems"
   - var PageName = "News"
   - var PageID = "news"
   -
@@ -14,6 +13,6 @@ block variables
 block content
   .card
     .card-header
-      h3 CGS News
+      h3 News
     //-.card-body
     +news_list(news_keys, news)
