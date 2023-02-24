@@ -4,7 +4,7 @@ mixin bibliography_entry(key, content)
       span Article
       if content.parsedContent.url
         span.ms-auto
-          a(href=context.publications_path+content.parsedContent.url)
+          a(href=content.parsedContent.url)
             i.bi.bi-download
     .card-body
       h6.card-title.text-muted

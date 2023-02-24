@@ -8,7 +8,10 @@ const PugPlugin = require('pug-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const FontminPlugin = require('fontmin-webpack');
+
 const Bibliography = require('bibliography');
+const StringValue = require('bibliography/internal/bibtex/field_value/StringValue').default;
+
 const { toNamespacedPath } = require('path');
 const yaml = require('yaml');
 
@@ -35,7 +38,6 @@ const renderAuthors = (authorField) => {
 }
 
 const renderPages = (pagesField) => {
-    // console.log(pagesField);
     return "0&endash;0";
 }
 
@@ -65,11 +67,31 @@ const augmentBibliographyEntry = (entry) => {
     if (augmentedEntry.fields.pages) {
         augmentedEntry.pages = renderPages(augmentedEntry.fields.pages);
     }
+    
     if (augmentedEntry.fields.url) {
         augmentedEntry.url = augmentedEntry.fields.url._unicode;
     }
+
     // console.log(augmentedEntry);
     return augmentedEntry;
+}
+
+const compileBibEntry = (bibEntry, ignoredFields) => {
+    let result = '@'+bibEntry['@type'] + '{' + bibEntry._id + ',\n';
+
+    for (const fieldName of Object.keys(bibEntry.fields)) {
+        if (ignoredFields.indexOf(fieldName) >= 0) {
+            continue;
+        }
+
+        const fieldValue = new StringValue(bibEntry.fields[fieldName])._unicode;
+        
+        result += '    ' + fieldName + ' = {' + fieldValue + '},\n';
+    }
+
+    result += '}\n';
+
+    return result;
 }
 
 const createBibliographyFromBibFilesSync = (filenames) => {
@@ -83,11 +105,14 @@ const createBibliographyFromBibFilesSync = (filenames) => {
         path_elements.shift();
         const key = path_elements.join("/");
         const parsed = Bibliography.parseString(entry);
+
+        const bibliographyRawEntry = parsed.rawEntries[Object.keys(parsed.rawEntries)[0]];
         const bibliographyEntry = parsed.entries[Object.keys(parsed.entries)[0]];
+
         entries[key] = {
             key: key,
             filename: relativeFilename,
-            content: entry,
+            content: compileBibEntry(bibliographyRawEntry, [ 'url' ]),
             parsedContent: augmentBibliographyEntry(bibliographyEntry),
         };
     });
@@ -214,6 +239,9 @@ module.exports = function (env, argv) {
                 {
                     test: /\.bib$/,
                     type: 'asset/resource',
+                    use: [
+                        { loader: path.resolve(__dirname, 'bib-loader.js'), options: { ignoredFields: [ 'url' ] } }
+                    ],
                     generator: {
                         filename: 'publications/[name][ext][query]'
                     }
