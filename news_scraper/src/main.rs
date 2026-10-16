@@ -1,4 +1,8 @@
-use std::{fs::File, io::Write};
+use std::{
+    fs::{File, create_dir_all},
+    io::Write,
+    process::{Command, Stdio},
+};
 
 use scraper::{Html, Selector};
 use serde::{Deserialize, Serialize};
@@ -7,6 +11,7 @@ use serde::{Deserialize, Serialize};
 async fn main() {
     env_logger::init();
 
+    // commented out, because we skip actually fetching the articles for now, and instead load the already saved json
     /*let articles = match fetch_articles_from_website().await {
         Ok(a) => a,
         Err(e) => {
@@ -35,12 +40,20 @@ async fn main() {
             article.fill_content().await.unwrap();
         }
         article.parse_content().unwrap();
+        article.parse_date();
     }
 
     match save_json(&articles) {
         Ok(_) => (),
         Err(e) => log::error!("{e}"),
     }
+
+    match export_json_and_pug(&articles) {
+        Ok(_) => (),
+        Err(e) => log::error!("{e}"),
+    }
+
+    html_to_pug(articles[5].content.as_ref().unwrap().as_str()).unwrap();
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -52,6 +65,14 @@ struct NewsArticle {
     original_content: Option<String>, // content with stricter filtering, ideally only including the actual news text
 
     error_message: Option<String>,
+
+    date: Option<String>,
+    title: Option<String>,
+    // `abstract` is not allowed as field name, so we have to manually rename it
+    #[serde(rename = "abstract")]
+    abstract_text: Option<String>,
+    url: Option<String>,
+    detailpage: Option<bool>,
 
     content: Option<String>,
 }
@@ -159,6 +180,11 @@ fn parse_overview_html(html: &str) -> anyhow::Result<Vec<NewsArticle>> {
             original_content_full: None,
             original_content: None,
             error_message: None,
+            date: None,
+            title: None,
+            abstract_text: None,
+            url: None,
+            detailpage: Some(true),
             content: None,
         });
     }
@@ -182,28 +208,26 @@ impl NewsArticle {
 
         let content_selector_full = Selector::parse(".csc-textpic-text").unwrap();
         let content_selector = Selector::parse(".csc-textpic-text > p:nth-last-child(1)").unwrap();
-        let content_element_full = match document.select(&content_selector_full).next() {
+        match document.select(&content_selector_full).next() {
             Some(c) => {
                 let content_full = c.inner_html().trim().to_string();
                 self.original_content_full = Some(content_full);
             }
             None => {
                 log::warn!("could not find content (full)");
-                // return Ok(()); // yeah I know, we should probably return an actual error here
             }
         };
-        let content_element = match document.select(&content_selector).next() {
+        match document.select(&content_selector).next() {
             Some(c) => {
                 let content = c.inner_html().trim().to_string();
                 self.original_content = Some(content);
             }
             None => {
                 log::warn!("could not find content");
-                // return Ok(());
             }
         };
 
-        log::debug!("content: {:?}", self.original_content);
+        // log::debug!("content: {:?}", self.original_content);
 
         Ok(())
     }
@@ -225,6 +249,25 @@ impl NewsArticle {
         if self.content.as_ref().is_some_and(|s| s.is_empty()) {
             self.content = None;
         }
+        self.detailpage = Some(true);
+        self.title = self.original_title.clone();
+
+        // todo: put in extra function
+        if self.content.is_some() {
+            let options = html_cleaning::CleaningOptions::builder()
+                .remove_tags(&["script", "style", "span", "a"])
+                .build();
+            let cleaner = html_cleaning::HtmlCleaner::with_options(options);
+            let doc = html_cleaning::Document::from(self.content.as_ref().unwrap().as_str());
+            cleaner.clean(&doc);
+            self.abstract_text = Some(
+                doc.select("body")
+                    .children()
+                    .first() // get first <p>
+                    .inner_html() // get content without <p>…</p> around it
+                    .to_string(),
+            );
+        }
     }
 
     fn parse_content(&mut self) -> anyhow::Result<()> {
@@ -245,6 +288,48 @@ impl NewsArticle {
 
         Ok(())
     }
+
+    fn parse_date(&mut self) {
+        let orig_date = match self.original_date {
+            Some(ref d) => d,
+            None => {
+                log::error!("can't fill in date, since no original_date is available");
+                return;
+            }
+        };
+
+        let segments: Vec<&str> = orig_date.split(".").collect(); // "dd.mm.yyyy" -> ["dd", "mm", "yyyy"]
+        if segments.len() != 3 {
+            log::error!("failed to split date");
+            return;
+        }
+
+        let dd = segments[0];
+        let mm = segments[1];
+        let yyyy = segments[2];
+
+        let iso_date = format!("{yyyy}-{mm}-{dd}");
+        log::debug!("{iso_date}");
+        self.date = Some(iso_date);
+    }
+
+    fn news_key(&self) -> String {
+        let mut key = format!(
+            "{}-{}",
+            self.date.as_ref().unwrap(),
+            self.title.as_ref().unwrap()
+        )
+        .to_lowercase();
+
+        key = sanitize_filename::sanitize(key);
+        key = key.replace(" ", "-");
+        key = key.replace("@", "_");
+        key = key.replace("!", "_");
+        key = key.replace("'", "_");
+        key = key.replace("\"", "_");
+
+        key
+    }
 }
 
 fn save_json(articles: &Vec<NewsArticle>) -> anyhow::Result<()> {
@@ -255,8 +340,106 @@ fn save_json(articles: &Vec<NewsArticle>) -> anyhow::Result<()> {
     Ok(())
 }
 
+fn export_json_and_pug(articles: &Vec<NewsArticle>) -> anyhow::Result<()> {
+    let out_dir = "export";
+
+    create_dir_all(out_dir)?;
+
+    for article in articles {
+        if article.content.is_none() || article.title.is_none() || article.date.is_none() {
+            continue;
+        }
+
+        let filename_base = article.news_key();
+
+        log::debug!("sanitized: {filename_base}");
+
+        {
+            let mut file = File::create(format!("{out_dir}/{filename_base}.json"))?;
+            let output_string = serde_json::to_string_pretty(article)?;
+            file.write_all(output_string.as_bytes())?;
+        }
+
+        {
+            let mut file = File::create(format!("{out_dir}/{filename_base}.pug"))?;
+            let output_string = article_to_pug(article)?;
+            file.write_all(output_string.as_bytes())?;
+        }
+    }
+
+    Ok(())
+}
+
 fn load_json() -> anyhow::Result<Vec<NewsArticle>> {
     let file = File::open("articles.json")?;
     let articles = serde_json::from_reader(file)?;
     Ok(articles)
+}
+
+fn html_to_pug(html: &str) -> anyhow::Result<String> {
+    let options = html_cleaning::CleaningOptions::builder()
+        .remove_tags(&["script", "style", "span"])
+        .build();
+    let cleaner = html_cleaning::HtmlCleaner::with_options(options);
+    let doc = html_cleaning::Document::from(html);
+    cleaner.clean(&doc);
+    let cleaned_html = doc
+        .select("body")
+        .inner_html() // get content without <p>…</p> around it
+        .to_string();
+
+    let mut cmd = Command::new("html2pug")
+        .args(["--fragment", "--double-quotes"])
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .spawn()?;
+
+    let mut stdin = cmd.stdin.take().expect("failed to spawn child process");
+
+    let input = cleaned_html;
+
+    std::thread::spawn(move || {
+        stdin
+            .write_all(input.as_bytes())
+            .expect("failed to write to stdin");
+    });
+
+    let output = cmd.wait_with_output()?;
+    let pug = String::from_utf8(output.stdout)?;
+
+    Ok(pug)
+}
+
+fn article_to_pug(article: &NewsArticle) -> anyhow::Result<String> {
+    let content_pug = html_to_pug(article.content.as_ref().unwrap().as_str())?;
+
+    // pug result is indented with two spaces, but needs for to fit the template
+    let mut content_pug_indented = String::new();
+    for line in content_pug.lines() {
+        content_pug_indented.push_str("  ");
+        content_pug_indented.push_str(line);
+        content_pug_indented.push_str("\n");
+    }
+
+    let article_pug = format!(
+        "extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '{}';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+{}",
+        article.news_key(),
+        content_pug_indented,
+    );
+
+    Ok(article_pug.into())
 }
