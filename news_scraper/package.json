@@ -1,0 +1,8 @@
+{
+  "name": "news_scraper",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "html2pug": "^4.0.0"
+  }
+}
