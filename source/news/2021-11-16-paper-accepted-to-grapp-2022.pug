@@ -1,0 +1,20 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2021-11-16-paper-accepted-to-grapp-2022';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "
+    a.external(href="https://hpi.de/doellner/publications/Document/matthias.trapp/Paper.pdf/299d1d77b9f980b458fa829064af5852.html?tx_extbibsonomycsl_publicationlist%5Baction%5D=view&tx_extbibsonomycsl_publicationlist%5Bpreview%5D=large&cHash=158f6ef5da6ee2ebf94a51cd8b84a2db" target="_blank") A Non-Photorealistic Rendering Technique for Art-directed Hatching of 3D Point Clouds
+    | " by Ronja Wagner, Ole Wegen, Daniel Limberger, Jürgen Döllner, and Matthias Trapp was accepted for publication and presentation at the 
+    a.external(href="https://grapp.scitevents.org/" target="_blank") 17th Internation Conference on Computer Graphics Theory and Applications (GRAPP 2022)
+    | . The conference will take place as virtual-only event February 6-8, 2022.

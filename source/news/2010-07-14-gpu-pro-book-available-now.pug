@@ -1,0 +1,15 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2010-07-14-gpu-pro-book-available-now';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p The book "GPU Pro" by Wolfgang Engel is in stores now. It contains 42 chapters with GPU techniques covering various topics. One of the chapters is "Anisotropic Kuwahara Filtering on the GPU" by Jan Eric Kyprianidis.

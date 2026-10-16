@@ -1,0 +1,24 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2021-09-30-best-paper-award-cyberworlds-2021';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The 
+    a.external(href="https://cyberworlds2021.sciencesconf.org" target="_blank") CyberWorlds 2021
+    |  contribution 
+    em
+      strong
+        a.external(href="https://arxiv.org/abs/2106.13787" target="_blank") Interactive Multi-level Stroke Control for Neural Style Transfer
+    strong  
+    | authored by Max Reimann, Benito Buchheim, Amir Semmo, Jürgen Döllner and Matthias Trapp was awarded the best paper award. This research was enabled by the collaboration of Digital Masterpieces and the Computer Graphics Systems Group (funded by the German Federal Ministry of Education and Research (BMBF) through grant 01IS18092/"mdViPro" and 01IS19006/"KI-LAB-ITSE").
+  p Links:

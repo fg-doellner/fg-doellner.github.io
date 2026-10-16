@@ -1,0 +1,20 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2011-02-24-paper-accepted-for-workshop-on-managing-technical-dept-at-33rd-icse-2011';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "Monitoring Code Quality and Development Activity by Software Maps" by 
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/doellner/bohnet.html" target="_blank" title="Opens external link in new window") Johannes Bohnet
+    |  and Jürgen Döllner was accepted as a full paper for the Workshop on Managing Technical Debt at the 33rd IEEE/ACM International Conference on Software Engineering (
+    a.external-link-new-window(href="http://2011.icse-conferences.org/" target="_blank" title="Opens external link in new window") ICSE 2011
+    | ).

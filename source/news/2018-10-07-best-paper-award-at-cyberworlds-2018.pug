@@ -1,0 +1,21 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2018-10-07-best-paper-award-at-cyberworlds-2018';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "MaeSTrO: A Mobile App for Style Transfer Orchestration using Neural Networks" by Max Reimann, Mandy Klingbeil, Sebastian Pasewaldt, Amir Semmo, Matthias Trapp, and Jürgen Döllner has received the Best Full Paper Award at this year's International Conference on Cyberworlds. MaeSTrO is a mobile app for orchestration of neural style transfer techniques using iterative, multi-style generative and adaptive neural networks that can be locally controlled by on-screen painting metaphors. MaeSTrO can be downloaded for the Apple iPad via 
+    a.external(href="https://testflight.apple.com/join/7Srf3p2m" target="_blank") TestFlight
+    | . Cyberworlds 2018 was held in Singapore from the 3rd to 5th October.
+    br
+    br
+    | Links:

@@ -1,0 +1,19 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2022-02-03-paper-accepted-to-enase-2022';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "Mining Developer Expertise from Bug Tracking Systems using the Author-Topic Model" by Daniel Atzberger, Jonathan Schneider, Willy Scheibel, Daniel Limberger, Matthias Trapp, and Jürgen Döllner was accepted for publication and presentation at the 
+    a.external(href="https://enase.scitevents.org/" target="_blank") 17th International Conference on Evaluation of Novel Appraoches to Software Engineering
+    | . The conference will take place as virtual-only event between April 25-26, 2022.
+  p This paper won the "Best Student Paper Award" of the ENASE 2022.

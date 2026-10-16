@@ -1,0 +1,19 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2022-06-22-paper-accepted-for-vinci-2022';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p The paper "A Benchmark for the Use of Topic Models for Text Visualization Tasks" by Daniel Atzberger, Tim Cech, Willy Scheibel, Daniel Limberger, Matthias Trapp, and Jürgen Döllner got accepted for publication for the International Symposium on Visual Information Communication and Interaction (VINCI 2022).
+  p
+    | The Symposium will take place in Chur, Switzerland from 16. until 18. August. Please refer to 
+    a(href="https://vinci-conf.org/" target="_blank") https://vinci-conf.org/
+    |  for more details.

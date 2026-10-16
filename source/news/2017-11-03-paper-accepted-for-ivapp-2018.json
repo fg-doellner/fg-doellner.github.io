@@ -1,0 +1,14 @@
+{
+  "original_url": "/doellner/paper-accepted-for-ivapp-2018.html",
+  "original_date": "03.11.2017",
+  "original_title": "Paper accepted for IVAPP 2018",
+  "original_content_full": "<p>The paper \"EvoCells – A Treemap Layout Algorithm for Evolving Tree Data\" by Willy  Scheibel, Christopher Weyand, and Jürgen Döllner has been accepted as a  contribution to the 9th International Conference on Information  Visualization Theory and Applications (IVAPP 2018). The conference will  be held in Funchal, Portugal from the 27th to 29th of January and  is part of the VISIGRAPP 2018 conference.\n</p><p>Links:</p><ul><li><a class=\"external\" href=\"http://www.ivapp.visigrapp.org/\" target=\"_blank\" title=\"Opens external link in current window\">Link to the conference website</a></li></ul>",
+  "original_content": "We propose the rectangular treemap layout algorithm EvoCells that maps changes in tree-structured data onto an initial treemap layout. Changes in topology and node weights are mapped to insertion, removal, growth, and shrinkage of the layout rectangles. Thereby, rectangles displace their neighbors and stretche their enclosing rectangles with a run-time complexity of O(n log n). An evaluation using layout stability metrics on the open source ElasticSearch software system suggests EvoCells as a valid alternative for stable treemap layouting",
+  "error_message": null,
+  "date": "2017-11-03",
+  "title": "Paper accepted for IVAPP 2018",
+  "abstract": "The paper \"EvoCells – A Treemap Layout Algorithm for Evolving Tree Data\" by Willy  Scheibel, Christopher Weyand, and Jürgen Döllner has been accepted as a  contribution to the 9th International Conference on Information  Visualization Theory and Applications (IVAPP 2018). The conference will  be held in Funchal, Portugal from the 27th to 29th of January and  is part of the VISIGRAPP 2018 conference.\n",
+  "url": null,
+  "detailpage": true,
+  "content": "<p>The paper \"EvoCells – A Treemap Layout Algorithm for Evolving Tree Data\" by Willy  Scheibel, Christopher Weyand, and Jürgen Döllner has been accepted as a  contribution to the 9th International Conference on Information  Visualization Theory and Applications (IVAPP 2018). The conference will  be held in Funchal, Portugal from the 27th to 29th of January and  is part of the VISIGRAPP 2018 conference.\n</p><p>Links:</p>"
+}

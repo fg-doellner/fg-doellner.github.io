@@ -1,0 +1,22 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2023-07-10-paper-accepted-at-cyberworlds-2023';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "Controlling Geometric Abstraction and Texture for Artistic Images" by Martin Büßemeyer, Max Reimann, Benito Buchheim, Amir Semmo, Jürgen Döllner, and Matthias Trapp was 
+    br
+    | accepted for publication at the 22th International Conference on Cyberworlds (CW2023). The conference will take place in Sousse, Tunesia from October 3rd to 5th. The paper and code are available 
+    a.external(href="https://maxreimann.github.io/artistic-texture-editing/" target="_blank") here
+    | . For more information, 
+    a.external(href="https://cw2023.ieee.tn" target="_blank") visit the website
+    | .

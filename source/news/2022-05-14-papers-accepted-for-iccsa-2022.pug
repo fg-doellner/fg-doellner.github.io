@@ -1,0 +1,23 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2022-05-14-papers-accepted-for-iccsa-2022';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p The following papers got accepted for publication on the International Conference on Computational Science and Its Applications (ICCSA 2022):
+  p - Adrian Jobst, Daniel Atzberger, Tim Cech, Willy Scheibel, Matthias Trapp, and Jürgen Döllner: "Efficient GitHub Crawling using the GraphQL API"
+  p - Andreas Fricke, Jürgen Döllner, and Hartmut Asche: "A Virtual 3D City Model for Urban Planning and Decision-Making - The East Jerusalem Case"
+  p - Ole Wegen, Jürgen Döllner, and Rico Richter: "Concepts and Challenges for 4D Point Clouds as a Foundation of Conscious, Smart City Systems"
+  p - Salvador Merino Cordoba, Francisco Guzmán Navarro, Javier Martínez del Castillo, Rafael Guzmán Sepúlveda, Juan De Dios Lara Fernández, and Jürgen Döllner: "A Conscious, Smart Site Model for a Solar-Water Energy System"
+  p
+    | The conference takes place in Malaga, Spain from 4 to 7 of July. For more information, please refer to 
+    a(href="https://iccsa.org/" target="_blank") https://iccsa.org/
+    | .

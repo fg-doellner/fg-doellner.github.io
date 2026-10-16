@@ -1,0 +1,18 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2012-04-04-contribution-accepted-for-publication-in-computers-&amp;-graphics';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The article "
+    a.external-link(href="http://www.hpi.uni-potsdam.de/doellner/publications/year/2012/2089/WKO12.html" target="_blank" title="Opens external link in current window") XDoG: An eXtended difference-of-Gaussians compendium including advanced image stylization
+    | " by Holger Winnemöller, Jan Eric Kyprianidis, and Sven C. Olsen has been accepted for publication in a future issue of Computers & Graphics.

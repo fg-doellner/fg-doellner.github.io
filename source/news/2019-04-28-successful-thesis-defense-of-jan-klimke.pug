@@ -1,0 +1,17 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2019-04-28-successful-thesis-defense-of-jan-klimke';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p On Monday April 8th 2019 Jan Klimke successfully defended his doctoral thesis titled "Web-Based Provisioning and Application of Large-Scale Virtual 3D City Models". In his thesis he addresses issues for image-based provisioning of virtual 3D city models that arise from size, heterogeneity and complexity of such models.
+  p
+    a.download(href="/oldsite/fileadmin/user_upload/fachgebiete/doellner/People/jklimke/Jan_Klimke_Abstract_EN.pdf") Download Abstract

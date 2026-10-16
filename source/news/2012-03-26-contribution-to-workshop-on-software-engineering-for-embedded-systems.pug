@@ -1,0 +1,21 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2012-03-26-contribution-to-workshop-on-software-engineering-for-embedded-systems';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p.
+    A paper entitled "Maintenance of Embedded Systems: Supporting Program Comprehension Using Dynamic Analysis" by Jonas Trümper, Stefan Voigt, and Jürgen Döllner has been accepted as a contribution to the 2nd International Workshop on Software Engineering for Embedded Systems (SEES), which will be held in Zurich, Switzerland, on June 9th 2012.
+    
+  p
+    a.external(href="https://hpi.de/index.php?id=103538&tx_sixpack_pi1%5Bdetails%5D=102075" target="_top" title="Öffnet externen Link in neuem Fenster") Link to the publication.
+  p
+    a.external-link-new-window(href="http://www.ssrg.nicta.com.au/sees12/" target="_blank" title="Öffnet externen Link in neuem Fenster") Link to the workshop website.

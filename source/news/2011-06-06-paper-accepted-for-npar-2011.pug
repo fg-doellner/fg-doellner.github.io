@@ -1,0 +1,20 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2011-06-06-paper-accepted-for-npar-2011';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "
+    a(href="http://www.hpi.uni-potsdam.de/doellner/publications/year/2011/1494/Kyp11.html" target="_blank" title="Opens external link in current window") Image and Video Abstraction by Multi-scale Anisotropic Kuwahara Filtering
+    | " by Jan Eric Kyprianidis has been accepted as a contribution to the 9th 
+    a(href="http://www.cl.cam.ac.uk/conference/cae-sbim-npar-2011/NPAR/" target="_blank" title="Opens external link in current window") Symposium on Non-Photorealistic Animation and Rendering
+    |  (NPAR). The conference will be held from the 5th to 7th August in Vancouver (Canada) and is co-located with SIGGRAPH 2011.

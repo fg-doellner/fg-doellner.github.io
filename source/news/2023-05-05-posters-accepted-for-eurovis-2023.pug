@@ -1,0 +1,19 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2023-05-05-posters-accepted-for-eurovis-2023';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p Two posters got accepted for publication at the EG Conference on Visualization (EuroVis '23).
+  p
+    | The conference takes place from June 12 to 16 in Leipzig, Germany. For more information, 
+    a.external(href="https://www.eurovis.org/" target="_blank") visit the website
+    | .

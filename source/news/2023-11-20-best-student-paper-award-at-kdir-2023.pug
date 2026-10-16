@@ -1,0 +1,18 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2023-11-20-best-student-paper-award-at-kdir-2023';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The Paper "Visual Counterfactual Explanations Using Semantic Part Locations" from Florence Böttger, Tim Cech, Willy Scheibel, and Jürgen Döllner was awarded as Best Student Paper at the 
+    a.external(href="https://kdir.scitevents.org/" target="_blank") 15th International Conference on Knowledge Discovery and Information Retrieval
+    | .
