@@ -1,0 +1,23 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2011-04-11-jan-eric-kyprianidis-at-eurographics-2011';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    a.internal-link(href="/doellner/people.html" title="Opens internal link in current window") Jan Eric Kyprianidis
+    |  is joining the 
+    a.external-link-new-window(href="http://eg2011.bangor.ac.uk/" target="_blank" title="Opens external link in new window") Eurographics 2011
+    | , which is held from April 11-15, 2011, in Llandudno, Wales UK. He is not only contributing a full paper entitled 
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/doellner/publications/year/2011/1231/KK11.html" target="_blank" title="Opens external link in new window") "Image and Video Abstraction by Coherence-Enhancing Filtering"
+    |  together with Henry Kang but is also contributing a tutorial about 
+    a.external-link-new-window(href="http://kahlan.eps.surrey.ac.uk/EG2011/" target="_blank" title="Opens external link in new window") "Artistic Stylisation of Images and Video"
+    |  in cooperation with John Collomosse.

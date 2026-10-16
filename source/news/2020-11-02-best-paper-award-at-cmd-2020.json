@@ -1,0 +1,14 @@
+{
+  "original_url": "/doellner/cgs-news/best-paper-award-at-cmd-2020.html",
+  "original_date": "02.11.2020",
+  "original_title": "Best Paper Award at CMD 2020",
+  "original_content_full": "<div class=\"csc-textpic-textcsc-textpicHeader\"><header><h1 class=\"\">\n\t\t\t\tBest Paper Award at CMD2020\n\t\t\t</h1><h2 class=\"\">\n\t\t\t\t\"Customizable Asymmetric Loss Functions for Machine Learning-based Predictive Maintenance\" awarded with Best Paper Award at CMD 2020 Conference\n\t\t\t</h2></header></div><p>A paper titled <strong>\"Customizable Asymmetric Loss Functions for Machine Learning-based Predictive Maintenance\"</strong> by Lukas Ehrig, Daniel Atzberger, Benjamin Hagedorn, Jan Klimke, and Jürgen Döllner was awarded for the Best Paper award at the&nbsp;<strong><a class=\"external\" href=\"https://cmd2020.org/\" target=\"_blank\">8th International Conference on Condition Monitoring and Diagnosis (CMD 2020)&nbsp;</a>. </strong></p><p>The paper introduces&nbsp;an approach of modelling different costs for overestimation and underestimation within machine learning approaches for predicitve maintenance. It describes a configureable cost&nbsp;function that is can be used for training of machine learning&nbsp;techniques in order to optimize&nbsp;predictions that are made using these&nbsp;models.</p><p>This project has been partially funded by:</p><ul><li>Federal Ministry of Economic Affairs and Energy under ZIM Program (Project IBDAV)</li><li>German Federal Ministry of Education and Research BMBF:&nbsp;AI Lab for IT-Systems Engineering</li></ul>",
+  "original_content": null,
+  "error_message": null,
+  "date": "2020-11-02",
+  "title": "Best Paper Award at CMD 2020",
+  "abstract": "A paper titled <strong>\"Customizable Asymmetric Loss Functions for Machine Learning-based Predictive Maintenance\"</strong> by Lukas Ehrig, Daniel Atzberger, Benjamin Hagedorn, Jan Klimke, and Jürgen Döllner was awarded for the Best Paper award at the&nbsp;<strong>. </strong>",
+  "url": null,
+  "detailpage": true,
+  "content": "<p>A paper titled <strong>\"Customizable Asymmetric Loss Functions for Machine Learning-based Predictive Maintenance\"</strong> by Lukas Ehrig, Daniel Atzberger, Benjamin Hagedorn, Jan Klimke, and Jürgen Döllner was awarded for the Best Paper award at the&nbsp;<strong><a class=\"external\" href=\"https://cmd2020.org/\" target=\"_blank\">8th International Conference on Condition Monitoring and Diagnosis (CMD 2020)&nbsp;</a>. </strong></p><p>The paper introduces&nbsp;an approach of modelling different costs for overestimation and underestimation within machine learning approaches for predicitve maintenance. It describes a configureable cost&nbsp;function that is can be used for training of machine learning&nbsp;techniques in order to optimize&nbsp;predictions that are made using these&nbsp;models.</p><p>This project has been partially funded by:</p>"
+}

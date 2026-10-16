@@ -1,0 +1,26 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2011-08-12-jan-eric-kyprianidis-at-npar-and-siggraph-2011';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | At NPAR 2011, 
+    a.external-link-new-window(href="http://www.kyprianidis.com/" target="_blank" title="Öffnet externen Link in neuem Fenster") Jan Eric
+    |  presented his paper on "
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/doellner/publications/year/2011/1494/Kyp11.html" target="_blank" title="Öffnet externen Link in neuem Fenster") Image and Video Abstraction by Multi-scale Anisotropic Kuwahara Filtering
+    | ". NPAR 2011 was part of the 2011 Joint Session of the Symposia on Computational Aestethics, Sketch-Based Interfaces and Modeling, and Non-Photorealistic Animation and Rendering (
+    a.external-link-new-window(href="http://www.cl.cam.ac.uk/conference/cae-sbim-npar-2011/" target="_blank" title="Öffnet externen Link in neuem Fenster") CAE-SBIM-NPAR
+    | ), which was held in Vancouver from 5-7 August and was collocated with SIGGRAPH 2011. Jan Eric also chaired the 
+    a.external-link-new-window(href="http://www.cl.cam.ac.uk/conference/cae-sbim-npar-2011/Program-Sunday" target="_blank" title="Öffnet externen Link in neuem Fenster") Session on Visualization and Beautification
+    |  at the Symposia. Taking the chance, he also visited 
+    a.external-link-new-window(href="http://www.siggraph.org/s2011/" target="_blank" title="Öffnet externen Link in neuem Fenster") SIGGRAPH 2011
+    | , held from 7-11 August, 2011.

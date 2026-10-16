@@ -1,7 +1,14 @@
 {
-    "date": "2022-10-17",
-    "title": "Paper accepted for ECCV 2022",
-    "abstract": "The paper \"WISE: Whitebox Image Stylization by Example-based Learning\" authored by Winfried Lötzsch, Max Reimann, Martin Büßemeyer, Amir Semmo, Jürgen Döllner and Matthias Trapp was accepted for publication on the European Conference for Computer Vision (ECCV 2022).",
-    "url": "2022-10-17-paper-accepted-for-eccv-2022",
-    "detailpage": true
+  "original_url": "/doellner/cgs-news/paper-accepted-for-eccv-2022.html",
+  "original_date": "17.10.2022",
+  "original_title": "Paper accepted for ECCV 2022",
+  "original_content_full": "<div class=\"csc-textpic-textcsc-textpicHeader\"><header><h1 class=\"\">\n\t\t\t\tPaper accepted for ECCV 2022\n\t\t\t</h1></header></div><p>The&nbsp;paper&nbsp;<a class=\"external\" href=\"https://ivpg.hpi3d.de/wise/\" target=\"_blank\">WISE: Whitebox Image Stylization by Example-based Learning</a> authored by Winfried Lötzsch*, Max Reimann*, Martin Büßemeyer, Amir Semmo, Jürgen Döllner and Matthias Trapp (*denotes equal contribution) was accepted for publication on the European Conference for Computer Vision (ECCV 2022). It will be presented on the 23-27 Oct in Tel Aviv, Israel.</p><p>Links:</p><ul><li><a class=\"external\" href=\"https://ivpg.hpi3d.de/wise/\" target=\"_blank\">Link to the project website</a></li><li><a class=\"external\" href=\"https://arxiv.org/abs/2207.14606\" target=\"_blank\">Link to the arxiv paper</a></li><li><a class=\"external\" href=\"https://eccv2022.ecva.net/\" target=\"_blank\" title=\"Opens external link in current window\">Link to the conference website</a></li></ul>",
+  "original_content": null,
+  "error_message": null,
+  "date": "2022-10-17",
+  "title": "Paper accepted for ECCV 2022",
+  "abstract": "The&nbsp;paper&nbsp; authored by Winfried Lötzsch*, Max Reimann*, Martin Büßemeyer, Amir Semmo, Jürgen Döllner and Matthias Trapp (*denotes equal contribution) was accepted for publication on the European Conference for Computer Vision (ECCV 2022). It will be presented on the 23-27 Oct in Tel Aviv, Israel.",
+  "url": null,
+  "detailpage": true,
+  "content": "<p>The&nbsp;paper&nbsp;<a class=\"external\" href=\"https://ivpg.hpi3d.de/wise/\" target=\"_blank\">WISE: Whitebox Image Stylization by Example-based Learning</a> authored by Winfried Lötzsch*, Max Reimann*, Martin Büßemeyer, Amir Semmo, Jürgen Döllner and Matthias Trapp (*denotes equal contribution) was accepted for publication on the European Conference for Computer Vision (ECCV 2022). It will be presented on the 23-27 Oct in Tel Aviv, Israel.</p><p>Links:</p>"
 }

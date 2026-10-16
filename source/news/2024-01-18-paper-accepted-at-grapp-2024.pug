@@ -1,0 +1,24 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2024-01-18-paper-accepted-at-grapp-2024';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | The paper "Non-Photorealistic Rendering of 3D Point Clouds Using Segment-Specific Image-Space Effects" got accepted at the 19th International Conference on Computer Graphics Theory and Applications (GRAPP 2024).
+    br
+    | It was authored by Ole Wegen, Josafat-Mattias Burmeister, Max Reimann, Rico Richter, and Jürgen Döllner.
+  p
+    | The GRAPP conference is part of VISIGRAPP, the 19th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications.
+    br
+    | It will be held in Rome, Italy from February 27 to 29. Visit their 
+    a.external(href="https://visigrapp.scitevents.org/" target="_blank") website for details
+    | .

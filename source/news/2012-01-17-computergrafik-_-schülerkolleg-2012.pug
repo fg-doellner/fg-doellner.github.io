@@ -1,0 +1,23 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2012-01-17-computergrafik-_-schülerkolleg-2012';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p.
+    Auch in diesem Jahr beteiligt sich die Fachgruppe Computergrafische Systeme am Hasso-Plattner-Institut wieder aktiv am Schülerkolleg. Dieses findet im Rahmen der HPI-Schülerakademie statt und ermöglicht interessierten Schülerinnen und Schülern der Sekundarstufe I und II Einblick in verschiedene Bereiche der Softwareentwicklung. Im Rahmen des Blocks „Computergrafik“ modellieren die Schüler ein Planetensystem und erlernen dabei Schritt für Schritt grundlegende Konzepte zu 3D-Transformationen, Beleuchtung und Schattierung sowie Texturierung von computergrafischen 3D-Modellen.
+    
+  p
+    | Links: 
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/hpi/schuelerakademie.html" target="_blank" title="Öffnet externen Link in neuem Fenster") HPI-Schülerakademie
+    |  und 
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/hpi/schuelerakademie/schuelerkolleg.html" target="_blank" title="Öffnet externen Link in neuem Fenster") HPI-Schülerkolleg
+    | .

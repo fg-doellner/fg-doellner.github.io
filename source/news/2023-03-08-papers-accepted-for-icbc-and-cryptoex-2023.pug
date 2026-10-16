@@ -1,0 +1,20 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2023-03-08-papers-accepted-for-icbc-and-cryptoex-2023';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p One paper was accepted for publication at the IEEE International Conference on Blockchain and Cryptocurrency (ICBC '23).
+  p Further, three paper were accepted for publication at the IEEE Workshop on Cryptocurrency Exchanges (CryptoEx '23) which is held in conjunction with ICBC '23.
+  p
+    | The ICBC and CryptoEx will take place in Dubai, UAE, from May 1st to 5th. For more info, visit 
+    a(href="https://icbc2023.ieee-icbc.org/" target="_blank") https://icbc2023.ieee-icbc.org/
+    | .

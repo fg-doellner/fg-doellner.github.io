@@ -1,0 +1,29 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2017-08-13-presentations-at-expressive-and-siggraph-appy-hour-2017';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    | On July 29th 2017, Amir Semmo presented the paper "Neural Style Transfer: A Paradigm Shift for Image-based Artistic Rendering?" at the joint 
+    a.external(href="http://expressivesymposium.com" target="_blank" title="Öffnet externen Link im aktuellen Fenster") Expressive Symposium (CAe, NPAR, SBIM)
+    | , which was held in Los Angeles, CA, USA. The paper is a joint work of the research group with 
+    a.external(href="http://tobias.isenberg.cc/" target="_blank" title="Öffnet externen Link im aktuellen Fenster") Tobias Isenberg
+    |  from Team AVIZ–Inria-Saclay. The presentation slides are available 
+    a.external(href="http://www.researchgate.net/publication/318778180_Presentation_Slides_-_Neural_Style_Transfer_A_Paradigm_Shift_for_Image-based_Artistic_Rendering" target="_blank" title="Öffnet externen Link im aktuellen Fenster") here
+    | .
+  p
+    | In addition, Mandy Klingbeil and Amir Semmo presented on Aug 2nd 2017 the demo "Pictory: Combining Neural Style Transfer and Image Filtering" at 
+    a.external(href="http://s2017.siggraph.org/content/appy-hour" target="_blank" title="Öffnet externen Link im aktuellen Fenster") SIGGRAPH Appy Hour
+    | . More information on the public release of "Pictory" is available at the website of the project partner 
+    a.external(href="http://www.digitalmasterpieces.com/pictory" target="_blank" title="Öffnet externen Link im aktuellen Fenster") Digital Masterpieces
+    | .
+  p Links to the publications:

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 jsonfiles=$(ls *.json)
 
@@ -15,7 +15,7 @@ block newsvariables
 //-
   block date
     | [date]
-  
+
   block title
     | [title]
 

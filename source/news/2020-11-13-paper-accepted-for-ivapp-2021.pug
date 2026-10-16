@@ -1,0 +1,19 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2020-11-13-paper-accepted-for-ivapp-2021';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p One paper was accepted for publication at the International Conference on Information Visualization Theory and Applications (SciTePress IVAPP 2021, part of VISIGRAPP 2021).
+  p
+    | The conference is held as a virtual conference from February 8th until February 10th. More information at 
+    a(href="http://www.ivapp.visigrapp.org/" target="_blank") www.ivapp.visigrapp.org/
+    | .

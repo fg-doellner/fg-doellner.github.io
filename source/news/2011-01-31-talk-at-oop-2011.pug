@@ -1,0 +1,19 @@
+extends /template/newsentry.pug
+
+block newsvariables
+  - var newskey = '2011-01-31-talk-at-oop-2011';
+
+//-
+  block date
+    | [date]
+
+  block title
+    | [title]
+
+block newscontent
+  p.card-text
+  p
+    a.external-link-new-window(href="http://www.hpi.uni-potsdam.de/doellner/bohnet.html" target="_blank" title="Opens external link in new window") Johannes Bohnet
+    | , member of the CGS group, gave a talk on "Dynamic Analysis, Tracing, and Reverse Debugging - Potential, Best Practices, and Tools" at the major conference on software engineering in Germany, "
+    a.external-link-new-window(href="http://www.sigs-datacom.de/oop2011/oop2011.html" target="_blank" title="Opens external link in new window") OOP 2011
+    |  - Business Impact through Mastering Change", which was located in Munich from 24. until 28. Jan 2011.
