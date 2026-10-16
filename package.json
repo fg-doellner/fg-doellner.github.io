@@ -19,7 +19,6 @@
         "fira": "mozilla/Fira",
         "fontmin": "^0.9.9",
         "fontmin-webpack": "^4.0.0",
-        "node-sass": "^8.0.0",
         "pug": "^3.0.2",
         "pug-plugin": "^4.5.0",
         "sass": "^1.56.1",
