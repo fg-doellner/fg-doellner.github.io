@@ -272,7 +272,8 @@ impl NewsArticle {
 
             let doc = html_cleaning::dom::parse(self.content.as_ref().unwrap().as_str());
             let selection = doc.select("body").children().first(); // only get first `<p>`
-            let abstract_string = html_cleaning::dom::text_content(&selection);
+            let mut abstract_string = html_cleaning::dom::text_content(&selection);
+            abstract_string = abstract_string.replace(" .", ".");
 
             self.abstract_text = Some(abstract_string)
         }
@@ -289,7 +290,12 @@ impl NewsArticle {
         let mut content = "".to_string();
 
         for paragraph in content_fragment.select(&content_selector) {
-            content.push_str(&paragraph.html());
+            let mut html = paragraph.html();
+
+            html = html.replace("&nbsp;", " "); // normalize spaces
+            html = html.replace(" </a>", "</a>"); // remove extra whitespace at ends of links
+
+            content.push_str(&html);
         }
 
         self.content = Some(content);
