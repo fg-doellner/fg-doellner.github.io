@@ -285,7 +285,7 @@ impl NewsArticle {
             None => return Ok(()), // TODO: actual error/warning?
         };
         let content_fragment = Html::parse_fragment(&full_content);
-        let content_selector = Selector::parse("p").unwrap();
+        let content_selector = Selector::parse("p, ul").unwrap();
 
         let mut content = "".to_string();
 
