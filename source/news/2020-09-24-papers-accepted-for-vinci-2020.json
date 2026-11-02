@@ -10,5 +10,5 @@
   "abstract": "Three papers were accepted for publication at the Symposium on Visual Information Communication and Interaction (ACM VINCI 2020).",
   "url": null,
   "detailpage": true,
-  "content": "<p>Three papers were accepted for publication at the Symposium on Visual Information Communication and Interaction (ACM VINCI 2020).</p><p>The conference is held as a virtual conference from December 8th until December 10th. More information at <a href=\"https://vinci-conf.org/\" target=\"_blank\">vinci-conf.org/</a>.</p>"
+  "content": "<p>Three papers were accepted for publication at the Symposium on Visual Information Communication and Interaction (ACM VINCI 2020).</p><ul><li>Carolin Fiedler, Willy Scheibel, Daniel Limberger, Matthias Trapp, and Jürgen Döllner: \"Survey on User Studies on the Effectiveness of Treemaps\"</li><li>Willy Scheibel, Daniel Limberger, and Jürgen Döllner: \"Survey of Treemap Layout Algorithms\"</li><li>Daniel Limberger, Matthias Trapp, and Jürgen Döllner: \"Depicting Uncertainty in 2.5D Treemaps\"</li></ul><p>The conference is held as a virtual conference from December 8th until December 10th. More information at <a href=\"https://vinci-conf.org/\" target=\"_blank\">vinci-conf.org/</a>.</p>"
 }
