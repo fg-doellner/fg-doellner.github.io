@@ -254,19 +254,27 @@ impl NewsArticle {
 
         // todo: put in extra function
         if self.content.is_some() {
-            let options = html_cleaning::CleaningOptions::builder()
-                .remove_tags(&["script", "style", "span", "a"])
-                .build();
-            let cleaner = html_cleaning::HtmlCleaner::with_options(options);
-            let doc = html_cleaning::Document::from(self.content.as_ref().unwrap().as_str());
-            cleaner.clean(&doc);
-            self.abstract_text = Some(
-                doc.select("body")
-                    .children()
-                    .first() // get first <p>
-                    .inner_html() // get content without <p>…</p> around it
-                    .to_string(),
-            );
+            /*let options = html_cleaning::CleaningOptions::builder()
+                            .remove_tags(&["script", "style", "span", "a", "strong", "em"])
+                            .build();
+                        let cleaner = html_cleaning::HtmlCleaner::with_options(options);
+                        let doc = html_cleaning::Document::from(self.content.as_ref().unwrap().as_str());
+                        cleaner.clean(&doc);
+
+                        let mut abstract_string = doc.select("body")
+                                .children()
+                                .first() // get first <p>
+                                .inner_html() // get content without <p>…</p> around it
+                                .to_string();
+
+                        abstract_string = abstract_string.replace("&nbsp;", " ");
+            */
+
+            let doc = html_cleaning::dom::parse(self.content.as_ref().unwrap().as_str());
+            let selection = doc.select("body").children().first(); // only get first `<p>`
+            let abstract_string = html_cleaning::dom::text_content(&selection);
+
+            self.abstract_text = Some(abstract_string)
         }
     }
 
